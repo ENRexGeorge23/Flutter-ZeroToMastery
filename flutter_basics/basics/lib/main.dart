@@ -1,3 +1,4 @@
+import 'package:basics/presentation/widget_examples/widget_examples_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,22 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.amber),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter Basics'),
+        theme: ThemeData(
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.amber),
         ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => print('Floating Action Button Pressed'),
-          child: const Icon(Icons.ac_unit),
-        ),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        home: const WidgetExamples());
   }
 }
