@@ -13,9 +13,13 @@ class AppTheme {
     brightness: Brightness.light,
   );
   static final ThemeData darkTheme = ThemeData(
-    // useMaterial3: true,
+    useMaterial3: true,
+    appBarTheme: const AppBarTheme(
+      centerTitle: false,
+    ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: _primaryColorDark,
+      brightness: Brightness.dark,
     ),
   );
 }
