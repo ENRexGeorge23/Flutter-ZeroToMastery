@@ -76,7 +76,7 @@ class WidgetExamples extends StatelessWidget {
             ),
             CustomButton(
               onTap: () {
-                print('tapped');
+                debugPrint('tapped');
               },
               icon: Icons.home,
               iconColor: Colors.white,
@@ -86,7 +86,7 @@ class WidgetExamples extends StatelessWidget {
             ),
             CustomButtonGesture(
                 onTap: () {
-                  print('Custom Button Gesture Tapped');
+                  debugPrint('Custom Button Gesture Tapped');
                 },
                 text: 'text')
           ],

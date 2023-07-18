@@ -1,5 +1,3 @@
-import 'package:basics/presentation/navigation_example_screens/screen_one.dart';
-import 'package:basics/presentation/navigation_example_screens/screen_two.dart';
 import 'package:flutter/material.dart';
 
 class ButtonExample extends StatefulWidget {
