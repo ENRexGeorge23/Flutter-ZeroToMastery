@@ -11,7 +11,6 @@ class QuizPokerScreen extends StatefulWidget {
 }
 
 class _QuizPokerScreenState extends State<QuizPokerScreen> {
-  @override
   final List<Question> questions = [
     Question(
       category: 'Sports',

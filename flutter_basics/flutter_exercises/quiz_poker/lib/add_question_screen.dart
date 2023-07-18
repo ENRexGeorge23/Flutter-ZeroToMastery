@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_poker/main.dart';
 import 'package:quiz_poker/quiz_poker_screen.dart';
 
 class AddQuestionPage extends StatelessWidget {
   final List<Question> questions;
   final Function(Question) onQuestionAdded;
-  TextEditingController categoryController = TextEditingController();
-  TextEditingController questionController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
-  TextEditingController hint1Controller = TextEditingController();
-  TextEditingController hint2Controller = TextEditingController();
-  TextEditingController solutionController = TextEditingController();
+  final TextEditingController categoryController = TextEditingController();
+  final TextEditingController questionController = TextEditingController();
+  final TextEditingController imageController = TextEditingController();
+  final TextEditingController hint1Controller = TextEditingController();
+  final TextEditingController hint2Controller = TextEditingController();
+  final TextEditingController solutionController = TextEditingController();
 
   AddQuestionPage({
     Key? key,

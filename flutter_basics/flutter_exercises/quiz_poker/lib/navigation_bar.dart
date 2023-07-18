@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_poker/add_question_screen.dart';
-import 'package:quiz_poker/main.dart';
-import 'package:quiz_poker/question_detail_screen.dart';
 import 'package:quiz_poker/quiz_poker_screen.dart';
 
 class RootBottomNavigation extends StatefulWidget {
@@ -19,10 +17,10 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          QuizPokerScreen(),
+          const QuizPokerScreen(),
           AddQuestionPage(
-            onQuestionAdded: (Question) {},
-            questions: [],
+            onQuestionAdded: (question) {},
+            questions: const [],
           ),
         ],
       ),
