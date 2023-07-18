@@ -1,6 +1,6 @@
-# adviser_app
+# Adviser App
 
-A new Flutter project.
+A Flutter project with A Clean Software Architecture.
 
 ## Getting Started
 
