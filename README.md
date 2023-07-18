@@ -1,7 +1,7 @@
 # ZeroToMastery
-A Comprehensive Udemy Flutter course for app development.
+A Comprehensive Udemy Flutter course for app development and with a standard clean architecture.
 
-In this repo, I save all my codes from exercises that was given to me on the course and I also code along to Flutter course while I was watching the video courses.
+In this repo, I save all my codes from exercises that was given to me on the course and I also code along to this Flutter course while I was watching the video courses.
 
 links for theming:
 
