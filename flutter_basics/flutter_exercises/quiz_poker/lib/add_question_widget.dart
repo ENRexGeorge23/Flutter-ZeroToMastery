@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_poker/main.dart';
 import 'package:quiz_poker/quiz_poker_screen.dart';
 
 class AddQuestionWidget extends StatelessWidget {
