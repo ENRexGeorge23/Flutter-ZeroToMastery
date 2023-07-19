@@ -12,10 +12,10 @@ const cacheFailureMessage = 'Something went wrong please try again';
 
 class AdvicerCubit extends Cubit<AdvicerCubitState> {
   final AdviceUseCases adviceUseCases;
-  AdvicerCubit({required this.adviceUseCases}) : super(AdvicerInitial());
+  AdvicerCubit({required this.adviceUseCases}) : super(const AdvicerInitial());
 
   void adviceRequestedEvent() async {
-    emit(AdvicerStateLoading());
+    emit(const AdvicerStateLoading());
     final failureOrAdvice = await adviceUseCases.getAdvice();
     failureOrAdvice.fold(
         (failure) => emit(AdvicerError(message: _mapFailureToMessage(failure))),
