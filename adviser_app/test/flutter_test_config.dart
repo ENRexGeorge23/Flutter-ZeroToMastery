@@ -1,11 +1,14 @@
 import 'dart:async';
 
+import 'package:file/file.dart';
+import 'package:file/local.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:platform/platform.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   setUpAll(() async {
-    final robotFont = _loadNaterialFont('Roboto-Regular.ttf');
+    final robotoFont = _loadMaterialFont('Roboto-Regular.ttf');
 
     final fontLoader = FontLoader('Roboto')..addFont(robotoFont);
     await fontLoader.load();
@@ -14,12 +17,11 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   await testMain();
 }
 
-Future<ByteData> _loadMaterialFont(String fontName) {
+Future<ByteData> _loadMaterialFont(String fontName) async {
   const FileSystem fs = LocalFileSystem();
   const Platform platform = LocalPlatform();
-
   final Directory flutterRoot =
-      fs.directory(platform.environment['FLUTTER_ROOT']!);
+      fs.directory(platform.environment['FLUTTER_ROOT']);
 
   final File font = flutterRoot.childFile(
     fs.path.join(
@@ -31,7 +33,9 @@ Future<ByteData> _loadMaterialFont(String fontName) {
     ),
   );
 
-  final Future<ByteData> bytes =
-      Future<ByteData>.value(font.readAsBytesSync().buffer.asByteData());
+  final Future<ByteData> bytes = Future<ByteData>.value(
+    font.readAsBytesSync().buffer.asByteData(),
+  );
+
   return bytes;
 }

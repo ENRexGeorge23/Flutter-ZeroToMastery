@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             color: onTap == null
                 ? themeData.colorScheme.errorContainer
-                : themeData.colorScheme.primary,
+                : themeData.colorScheme.secondary,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
