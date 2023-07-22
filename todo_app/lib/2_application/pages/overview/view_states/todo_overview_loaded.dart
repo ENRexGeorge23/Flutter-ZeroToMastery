@@ -6,6 +6,7 @@ import 'package:todo_app/1_domain/entities/todo_collection.dart';
 import 'package:todo_app/2_application/pages/create_to_do_collection/create_todo_collection_page.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail_page.dart';
 import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit.dart';
+import 'package:todo_app/2_application/pages/overview/bloc/cubit/todo_overview_cubit.dart';
 
 class ToDoOverviewLoaded extends StatelessWidget {
   const ToDoOverviewLoaded({super.key, required this.collections});
@@ -58,8 +59,16 @@ class ToDoOverviewLoaded extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
               key: const Key('create-to-do-collection'),
-              onPressed: () =>
-                  context.pushNamed(CreateToDoCollectionPage.pageConfig.name),
+              heroTag: 'create-to-do-collection',
+              onPressed: () {
+                context
+                    .pushNamed(CreateToDoCollectionPage.pageConfig.name)
+                    .then((value) {
+                  if (value == true) {
+                    context.read<TodoOverviewCubit>().readToDoCollections();
+                  }
+                });
+              },
               child: Icon(CreateToDoCollectionPage.pageConfig.icon),
             ),
           ),

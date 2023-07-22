@@ -10,9 +10,10 @@ class ToDoRepositoryMock implements ToDoRepository {
   final List<ToDoEntry> toDoEntries = List.generate(
     100,
     (index) => ToDoEntry(
-        id: EntryId.fromUniqueString(index.toString()),
-        description: 'decription $index',
-        isDone: false),
+      id: EntryId.fromUniqueString(index.toString()),
+      description: 'description $index',
+      isDone: false,
+    ),
   );
 
   final toDoCollections = List<ToDoCollection>.generate(
@@ -61,14 +62,17 @@ class ToDoRepositoryMock implements ToDoRepository {
     try {
       final startIndex = int.parse(collectionId.value) * 10;
       int endIndex = startIndex + 10;
-
       if (toDoEntries.length < endIndex) {
-        endIndex = toDoEntries.length - 1;
+        endIndex = toDoEntries.length;
       }
-      final entryIds = toDoEntries
-          .sublist(startIndex, endIndex)
-          .map((entry) => entry.id)
-          .toList();
+      List<EntryId> entryIds = [];
+
+      if (startIndex < toDoEntries.length) {
+        entryIds = toDoEntries
+            .sublist(startIndex, endIndex)
+            .map((entry) => entry.id)
+            .toList();
+      }
 
       return Future.delayed(
         const Duration(milliseconds: 300),
@@ -95,15 +99,20 @@ class ToDoRepositoryMock implements ToDoRepository {
   @override
   Future<Either<Failure, bool>> createToDoCollection(
       ToDoCollection collection) {
-    toDoCollections.add(collection);
+    final collectionToAdd = ToDoCollection(
+      id: CollectionId.fromUniqueString(toDoCollections.length.toString()),
+      title: collection.title,
+      color: collection.color,
+    );
+    toDoCollections.add(collectionToAdd);
     return Future.delayed(
         const Duration(milliseconds: 100), () => const Right(true));
   }
 
   @override
-  Future<Either<Failure, bool>> createToDoEntry(ToDoEntry entry) {
+  Future<Either<Failure, bool>> createToDoEntry(
+      CollectionId collectionId, ToDoEntry entry) {
     toDoEntries.add(entry);
-
     return Future.delayed(
         const Duration(milliseconds: 250), () => const Right(true));
   }
