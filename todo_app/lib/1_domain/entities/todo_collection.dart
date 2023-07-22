@@ -6,7 +6,11 @@ class ToDoCollection {
   final String title;
   final ToDoColor color;
 
-  ToDoCollection({required this.id, required this.title, required this.color});
+  ToDoCollection({
+    required this.id,
+    required this.title,
+    required this.color,
+  });
 
   ToDoCollection copyWith({
     String? title,
